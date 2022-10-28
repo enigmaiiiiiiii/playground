@@ -10,5 +10,8 @@ const user: User = {
     id: 0,
 };
 
+// Path: tswrongsyntax.ts
 
 console.log('Hello World');
+
+time: 
