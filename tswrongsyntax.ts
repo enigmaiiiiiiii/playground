@@ -8,3 +8,5 @@ const user2: User = {
     username: "John",
     id: 0,
 }
+
+console.log('commit 3');
