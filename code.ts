@@ -1,6 +1,2 @@
-let helloWorld = "Hello World";
-
-
-
-console.log('乱码');
-console.log('commit 2');
+const GeneratorFunction = function* () { }.constructor;
+const g = new GeneratorFunction("a", "yield  a * 2");
