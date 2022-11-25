@@ -8,3 +8,8 @@ class Point {
         this.y = y;
     }
 }
+
+interface User {
+    name: string;
+    age: number;
+}
