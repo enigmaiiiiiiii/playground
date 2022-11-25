@@ -1,2 +1,10 @@
-const GeneratorFunction = function* () { }.constructor;
-const g = new GeneratorFunction("a", "yield  a * 2");
+class Point {
+
+    x: number;
+    y: string;
+
+    constructor(x: number, y: string) {
+        this.x = x;
+        this.y = y;
+    }
+}

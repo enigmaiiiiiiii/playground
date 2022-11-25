@@ -1,13 +1,37 @@
-function* generator(i) {
-    yield i;
-    yield i + 10;
+class Human {
+    constructor(name, age) {
+        this.name = name;
+        this.age = age;
+        this.fx = () => {
+            console.log('this function fx');
+        }
+    }
+
+    // fa() {
+    //     console.log('this function fa');
+    // }
+
+    static fa() {
+        console.log('this function static fa');
+    }
+
+    fb() {
+        console.log('this function fb');
+    }
 }
 
-const gen = generator(10);
+class One extends Human {
 
-console.log(gen.next().value);
-console.log(gen.next().value);
-console.log(gen.next().value);
+    constructor() {
+        super();
+        this.job = 'engineer';
+    }
+    fo() {
+        console.log('inheritance function fo');
+        super.fb();
+    }
+}
 
-const GeneratorFunction = function* () { }.constructor;
-const g = new GeneratorFunction("a", "yield  a * 2");
+let h = new Human('John', 20);
+let some = new One();
+some.fo();
