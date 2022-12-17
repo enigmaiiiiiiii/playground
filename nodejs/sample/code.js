@@ -1,5 +1,4 @@
 
+const element = <h1>hello world!</h1>
 
-function fx() {
-    console.log("Hello World");
-}
+console.log(element);
