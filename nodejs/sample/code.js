@@ -1,4 +1,8 @@
+import fs from 'fs';
+import path from 'path'
+import { marked } from 'marked';
+import { parseISO, format } from 'date-fns';
 
-const element = <h1>hello world!</h1>
+let tmp = parseISO('2021-08-09');
 
-console.log(element);
+console.log(format(tmp, 'yyyy-MM-dd'));

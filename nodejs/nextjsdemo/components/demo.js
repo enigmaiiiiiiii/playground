@@ -1,35 +1,27 @@
-import React from "react";
+import { useState } from 'react';
 
-const today = new Date();
-
-function formatDate(date) {
-    return new Intl.DateTimeFormat(
-        "en-US",
-        { weekday: 'long' }
-    ).format(date);
+export default function Demo() {
+  const [isSent, setIsSent] = useState(false);
+  const [message, setMessage] = useState('Hi!');
+  if (isSent) {
+    return <h1>Your is on its way!</h1>
+  }
+  return (
+    <form onSubmit={(e) => {
+      e.preventDefault();
+      setIsSent(true);
+      sendMessage(message);
+    }}>
+      <textarea
+        placeholder="Message"
+        value={message}
+        onChange={e => setMessage(e.target.value)}
+      />
+      <button type="submit">Send</button>
+    </form>
+  );
 }
 
-class Demo extends React.Component {
-
-    constructor(props) {
-        super(props);
-        this.state = { date: new Date() };
-        this.name = "gregorio Y. zara";
-    }
-
-    render() {
-        return (
-            <div>
-                <img
-                    className="avatar"
-                    src="https://i.imgur.com/8Km9tLL.png"
-                    alt="gregorio Y. zara"
-                />
-                <h1>{this.name}'s To Do List</h1>
-                <h1>To Do List for { formatDate(today)} </h1>
-            </div>
-        );
-    }
+function sendMessage(message) {
+  // ...
 }
-
-export default Demo;

@@ -1,13 +1,17 @@
+
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
+import ReactDOM from 'react-dom/client'
 
 import DemoClock from '../components/democlock'
 import Demo from '../components/demo'
 
+if (typeof document !== undefined) {
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+}
 
 export default function Home() {
-
   return (
     <div className={styles.container}>
       <DemoClock />

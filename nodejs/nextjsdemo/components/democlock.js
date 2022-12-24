@@ -6,9 +6,7 @@ function Welcome(props) {
 export default function democlock() {
     return (
         <div>
-            <Welcome name="Sara" />
-            <Welcome name="Cahal" />
-            <Welcome name="Edite" />
+            {Welcome({ name: "lilith" })}
         </div>
     );
 }
