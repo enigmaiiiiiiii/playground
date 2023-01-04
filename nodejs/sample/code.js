@@ -1,29 +1,46 @@
-import express from "express"
-import jwt from "jsonwebtoken"
-const app = express()
+window.onload = function() {
 
-// You should actually store your JWT secret in your .env file - but to keep this example as simple as possible...
-const jwtsecret = "the most secret string of text in history"
+  const form = document.getElementById('message-form');
+  const messageField = document.getElementById('message');
+  const messagesList = document.getElementById('messages');
+  const socketStatus = document.getElementById('status');
+  const closeBtn = document.getElementById('close');
 
-app.use(express.json())
-app.use(express.static("public"))
+  form.onsubmit = function (e) {
+    e.preventDefault();
 
-app.post("/login", (req, res) => {
-  if (req.body.username === "johndoe" && req.body.password === "qwerty") {
-    res.json({status: "success", token: jwt.sign({name: "john Doe", favColor: "green"}, jwtsecret)})
-  }else {
-    res.json({status: "success", message: `Hello $(decoded.name} your favourite color is ${decoded.favColor} and we can tell you the secret info that the sky is blue)`})
+    // Retrieve the message from the textarea.
+    const message = messageField.value;
+
+    // Send the message through the WebSocket.
+    socket.send(message);
+
+    // Add the message to the messages list.
+    messagesList.innerHTML += '<li class="sent"><span>Sent:</span>' + message +
+                            '</li>';
+
+    // Clear out the message field.
+    messageField.value = '';
+
+    return false;
   }
-})
 
-app.post("/topsecret", (req, res) => {
-  jwt.verify(req.body.token, jwtsecret, function (err, decoded) {
-    if (err) {
-      res.json({ status: "failure"})
-    } else {
-      res.json({ status: "success", message: `Hello ${decoded.name} your favorite color is ${decoded.favColor} and we can tell you the secret info that the sky is blue.` });
-    }
-  })
-})
+  const socket = new WebSocket('ws://localhost:3000');
 
-app.listen(3000)
+  socket.onopen = function (event) {
+    socketStatus.innerHTML = 'Connected to:' + event.currentTarget.url;
+    socketStatus.className = 'open';
+  };
+
+  socket.onerror = function (error) {
+    console.log('WebSocket Error: ' + error);
+  }
+
+  closeBtn.onclick = function(e) {
+    e.preventDefault();
+    socket.close();
+    return false;
+  }
+};
+
+
