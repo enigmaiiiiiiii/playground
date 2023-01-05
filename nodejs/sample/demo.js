@@ -1,15 +1,11 @@
-import { WebSocketServer } from "ws";
-import fs from "fs";
+import http from 'http';
 
-const server = new WebSocketServer({ port: 3000 });
-const content = fs.readFileSync("index.html");
+const server = http.createServer(function (request, response) {
 
-
-server.on("connection", (socket) => {
-
-  socket.on('message', (message) => {
-    console.log(`Received message => ${message}`);
-  })
+  response.writeHead(200, { "Content-Type": "text/plain" });
+  response.end("goodbye World!\n");
 
 });
 
+server.listen(8000);
+console.log("Server running at http://localhost:8000/");

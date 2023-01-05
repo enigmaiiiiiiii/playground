@@ -1,7 +1,6 @@
 
 import * as validator from "./NewToAdd";
 
-let myValidator = new validator.ZipCodeValidator();
 
 let result: boolean = myValidator.isAcceptable("h12345");
 
