@@ -1,0 +1,39 @@
+*, ::after, ::before {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.box {
+  display: grid;
+  margin: 0px;
+  background-color: #eb8b0e;
+  grid-template-columns: 200px 200px;
+  grid-template-rows: 200px 200px;
+  border-radius: 20px;
+  align-items: center;
+}
+
+.box div {
+  border: 2px solid black;
+  border-radius: 20px;
+  margin: 20px;
+  font-size: 2rem;
+  text-align: center;
+  padding: 0.8em 0;
+}
+
+.first {
+  background-color: #f026a9;
+}
+
+.second {
+  background-color: #2af0af;
+}
+
+.third {
+  background-color: #a3f0e7;
+}

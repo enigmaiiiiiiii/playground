@@ -1,9 +1,7 @@
 {
-  "name": "client",
+  "name": "jank",
   "version": "1.0.0",
   "description": "",
-  "main": "script.js",
-  "type": "module",
   "scripts": {
     "test": "snowpack dev"
   },
@@ -12,9 +10,5 @@
   "license": "ISC",
   "devDependencies": {
     "snowpack": "^3.8.8"
-  },
-  "dependencies": {
-    "node-fetch": "^3.3.0",
-    "socket.io-client": "^4.5.4"
   }
 }
