@@ -1,14 +1,9 @@
-async function fx() {
+console.log("branch code");
 
-  const { data } = await new Promise((resolve, reject) => {
+function fx() {
+  new Promise((resolve, reject) => {
     setTimeout(() => {
-      resolve({ data: 1 });
-    }, 1000);
+      console.log("branch code");
+    }, 2000);
   });
-  console.log(data);
-  console.log("end");
-  return data;
-
 }
-
-fx();
