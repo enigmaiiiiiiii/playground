@@ -1,14 +1,9 @@
+console.log("branch code");
 
-const GeneratorFunction = function* () { }.constructor;
-
-async function fx() {
-  const gen = await new Promise((resolve, reject) => {
+function fx() {
+  new Promise((resolve, reject) => {
     setTimeout(() => {
-      console.log("gen");
-    }, 1000);
-    resolve("promise");
+      console.log("branch code");
+    }, 2000);
   });
-  return gen;
 }
-
-console.log(fx());
