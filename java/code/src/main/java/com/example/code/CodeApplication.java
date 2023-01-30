@@ -43,19 +43,17 @@ import javassist.bytecode.FieldInfo;
 public class CodeApplication {
 
     public static void main(String[] args) {
-        try {
-            URL u = new URL("file://mods/code-maven-plugin-0.0.1-SNAPSHOT.jar");
-            System.out.println(u.getProtocol());
-        } catch (Exception e) {
-
-        }
+        CodeApplication app = new CodeApplication();
+        app.runtimeLoad();
     }
 
-    public static void runtimeLoad() {
+
+    public void runtimeLoad() {
         try {
-            URL modurl = new URL("/mods/code-maven-plugin-0.0.1-SNAPSHOT.jar");
-            ClassLoader loader = new URLClassLoader(new URL[] { modurl });
-            Class<?> util = Class.forName("com.example.code.Util", true, loader);
+            URL modurl = new URL("jar:file:/D:/mods/code-maven-plugin-0.0.1-SNAPSHOT.jar!/");
+            ClassLoader loader = URLClassLoader.newInstance(new URL[]{ modurl }, getClass().getClassLoader());
+            Class<?> util = loader.loadClass("com.example.code.Util");
+            // Class<?> util = Class.forName("com.example.code.Util", true, loader);
             System.out.println(util);
             Method[] m = util.getDeclaredMethods();
             for (Method method : m) {
