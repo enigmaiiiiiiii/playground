@@ -1,9 +1,10 @@
-console.log("branch code");
+const fs = require('fs');
+const { execSync } = require('child_process');
 
-function fx() {
-  new Promise((resolve, reject) => {
-    setTimeout(() => {
-      console.log("branch code");
-    }, 2000);
-  });
+fs.renameSync("b.js", "c.js")
+
+try {
+  const result = execSync(`git mv b.js c.js`)
+} catch (error) {
+  console.error(`Error: ${error.stderr.toString()}`);
 }
