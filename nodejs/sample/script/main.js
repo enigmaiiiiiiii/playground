@@ -1,18 +1,7 @@
-const workerBtn = document.querySelector("#worker-btn");
+import path from 'path'; 
+import fs from 'fs';
+import renameFilesInDirectory  from './renamenote.js';
 
-workerBtn.addEventListener("click", () => {
-  const myWorker = new Worker('worker.js')
-  myWorker.postMessage('do work');
+const noteDirPath = path.join(path.dirname(process.cwd()), 'mdnote');
 
-  myWorker.onmessage = function (e) {
-    document.querySelector('#output').innerHTML = e.data;
-  }
-
-});
-
-
-const hahaBtn = document.querySelector("#btn");
-console.log(hahaBtn);
-hahaBtn.addEventListener('click', () => {
-  document.querySelector("#random").innerHTML = "random"
-});
+renameFilesInDirectory(noteDirPath);
