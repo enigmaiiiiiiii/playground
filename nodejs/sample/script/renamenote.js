@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path'
 import modUrlLink from './modifylinkurl.js'
+import { execSync } from 'child_process';
 
 const noteDirPath = path.join(path.dirname(process.cwd()), 'mdnote');
 
@@ -27,14 +28,12 @@ function renameFilesInDirectory(directoryPath) {
           const newFileName = file.replace(/_/g, '-').toLowerCase();
           const newFilePath = path.join(directoryPath, newFileName);
 
-          fs.rename(filePath, newFilePath, (error) => {
-
-            if (error) {
-              console.error(`Error renaming file: ${error}`);
-            } else {
-              console.log(`File renamed from ${file} to ${newFileName}`);
-            }
-          })
+          try {
+            execSync(`git mv ${filePath} ${newFilePath}`)
+            console.log(`File renamed from ${file} to ${newFileName}`);
+          } catch (e) {
+            console.error(`Error renaming file: ${file}`);
+          }
         }
 
       });
