@@ -1,15 +1,9 @@
-console.log('script start');
+import showdown from 'showdown';
 
-setTimeout(function () {
-  console.log('setTimeout');
-}, 0);
+const converter = new showdown.Converter();
 
-Promise.resolve()
-  .then(function () {
-    console.log('promise1');
-  })
-  .then(function () {
-    console.log('promise2');
-  });
+const text = '# Hello, Markdown';
 
-console.log('script end');
+const html = converter.makeHtml(text);
+
+console.log(html);
