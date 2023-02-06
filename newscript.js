@@ -1,4 +1,4 @@
 const fs = require('fs');
 const { execSync } = require('child_process');
 
-execSync(`git mv c.js a.js`);
+execSync(`git mv b.js c.js`);
