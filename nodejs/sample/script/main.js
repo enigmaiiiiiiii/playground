@@ -1,4 +1,5 @@
 import path from 'path';
+import fs from 'fs';
 import { execSync } from 'child_process';
 
 const noteDirPath = path.join(path.dirname(process.cwd()), 'mdnote');
