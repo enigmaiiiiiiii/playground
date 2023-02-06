@@ -1,10 +1,6 @@
 const fs = require('fs');
 const { execSync } = require('child_process');
 
-fs.renameSync("b.js", "c.js")
+fs.renameSync("c.js", "a.js")
 
-try {
-  const result = execSync(`git mv b.js c.js`)
-} catch (error) {
-  console.error(`Error: ${error.stderr.toString()}`);
-}
+const result = execSync(`git mv c.js a.js`)
