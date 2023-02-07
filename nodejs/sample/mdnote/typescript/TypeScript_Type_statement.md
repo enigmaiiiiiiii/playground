@@ -63,7 +63,7 @@ type customType<T = string> = {
 
 ## Conditional Types
 
-[Conditional Type](typescript-condition-type.md)
+[Conditional Type](TypeScript_Condition_Type.md)
 
 ## Mapped Types
 

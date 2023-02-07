@@ -28,7 +28,7 @@ type GreetFunction = (a: string) => void;
 function greet(fn: GreetFunction) { fn("Hello, World"); }
 ```
 
-more about function type [Compatibility](typescript-type.md#type-compatibility)
+more about function type [Compatibility](TypeScript_Type.md#type-compatibility)
 
 ## Optional Parameters
 

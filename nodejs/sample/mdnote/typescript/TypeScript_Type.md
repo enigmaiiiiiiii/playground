@@ -1,17 +1,16 @@
 # type in typescript
 
-- [type in typescript](#type-in-typescript)
-  - [What Is Type Annotation](#what-is-type-annotation)
-  - [what can be used as a type](#what-can-be-used-as-a-type)
-  - [type statement](#type-statement)
-  - [Union Types](#union-types)
-  - [type check](#type-check)
-  - [type inference](#type-inference)
-  - [type assertion](#type-assertion)
-  - [Narrowing](#narrowing)
-  - [Keyof operator](#keyof-operator)
-  - [Mapped Type](#mapped-type)
-  - [Type Compatibility](#type-compatibility)
+- [What Is Type Annotation](#what-is-type-annotation)
+- [what can be used as a type](#what-can-be-used-as-a-type)
+- [type statement](#type-statement)
+- [Union Types](#union-types)
+- [type check](#type-check)
+- [type inference](#type-inference)
+- [type assertion](#type-assertion)
+- [Narrowing](#narrowing)
+- [Keyof operator](#keyof-operator)
+- [Mapped Type](#mapped-type)
+- [Type Compatibility](#type-compatibility)
 
 ## What Is Type Annotation
 
@@ -74,17 +73,17 @@ function greet(person: Person) {
 
 4. anonymous function type
 
-[function type](typescript-function.md#function-type-expressions)
+[function type](TypeScript_Function.md#function-type-expressions)
 
-[type working with function](typescript-function.md#other-type-working-with-function)
+[type working with function](TypeScript_Function.md#other-type-working-with-function)
 
 ## type statement
 
-[TypeScript_Type.md](typescript-type-statement.md)
+[TypeScript_Type.md](TypeScript_Type_statement.md)
 
 ## Union Types
 
-[c++用也有union type](c++-union-type.md)
+[c++中也有union type](c++_union_type.md)
 
 ```ts
 function pringId(id: number | string) {
@@ -205,7 +204,7 @@ type Point = { x: number; y: number };
 type P = keyof Point;  // P = "x" | "y"
 ```
 
-- 如果一个类型包含[index signature](typescript-interface.md#index-signatures), keyof 返回的是 `string` or `string | number`
+- 如果一个类型包含[index signature](TypeScript_Interface.md#index-signatures), keyof 返回的是 `string` or `string | number`
 - 经常用于[mapped type](#mapped-types)
 
 ```ts
@@ -217,7 +216,7 @@ type M = keyof { [n: string]: unknown };  // M = string | number
 
 ## Mapped Type
 
-- build on [index signature](typescript-interface.md#index-signatures)
+- build on [index signature](TypeScript_Interface.md#index-signatures)
 - 通过另一个type来生成一个新的type, 从而避免repeat
 
 比如结合[keyof operator](#keyof-operator)来生成一个新类型, 可以用少量的代码来**修改一个类型的所有属性值的类型**

@@ -2,17 +2,17 @@
 
 ## export all exports
 
-[aggregate export](typescript-module-aggregateexport.md)
+[aggregate export](TypeScript_Module_AggregateExport.md)
 
 ## renamed export
 
-[renamed export](typescript-module-renamedexport.md)
+[renamed export](TypeScript_Module_RenamedExport.md)
 
 ## import types 
 
 ## dynamic import
 
-- core idea [commonjs module](javascript-module-of-es-and-commonjs.md) system because
+- core idea [commonjs module](JavaScript_Module_Of_ES_And_CommonJS.md) system because
   - it's allow to import module dynamically
   - can be write in statement
 

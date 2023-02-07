@@ -2,20 +2,20 @@
 
 [TypeScript documentation](https://www.typescriptlang.org/)
 
-[TypeScript Cheat Sheets](typescript-cheat-sheets.md)
+[TypeScript Cheat Sheets](TypeScript_Cheat_Sheets.md)
 
-[Start With Compile](typescript-get-started.md)
+[Start With Compile](TypeScript_Get_Started.md)
 
-[Introduction](typescript-introduction.md)
+[Introduction](Typescript_Introduction.md)
 
-[Features](typescript-features.md)
+[Features](TypeScript_Features.md)
 
-[Basic](typescript-fundation.md)
+[Basic](TypeScript_Fundation.md)
 
-[Class](typescript-class.md)
+[Class](TypeScript_Class.md)
 
-[Module系统](typescript-module.md)
+[Module系统](TypeScript_Module.md)
 
-[TSConfig File](typescript-config-file.md)
+[TSConfig File](TypeScript_Config_File.md)
 
-[code snippets explaination](typescript-code-snippets-explaination.md)
+[code snippets explaination](TypeScript_Code_Snippets_Explaination.md)

@@ -59,6 +59,6 @@ const secondItem = myArray[1];  // secondItem is string
 
 - this code means: an interface named StringArray has a index signature
 
-index Signature 允许的类型: `string`, `number`, [symbol](javascript-symbol.md), template string pattern or union of these types
+index Signature 允许的类型: `string`, `number`, [symbol](JavaScript_Symbol.md), template string pattern or union of these types
 
 

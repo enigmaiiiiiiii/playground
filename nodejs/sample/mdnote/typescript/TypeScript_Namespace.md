@@ -2,7 +2,7 @@
 
 - 避免命名冲突
 - 可以理解为module内部的module
-- [similar concepts in Java](java-package.md)
+- [similar concepts in Java](Java_Package.md)
 
 mymath.ts
 

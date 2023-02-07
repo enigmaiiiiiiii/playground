@@ -8,31 +8,31 @@
 
 ## key of typescript: type
 
-[type in typescript](typescript-type.md)
+[type in typescript](TypeScript_Type.md)
 
 ## interface
 
-[Interface](typescript-interface.md)
+[Interface](TypeScript_Interface.md)
 
 - interface和type aliase都可以实现继承
-- interface 和 [type aliases](typescript-type.md#type-aliases) 的关键区别: **type alias can't re-open to add properties**
+- interface 和 [type aliases](TypeScript_Type.md#type-aliases) 的关键区别: **type alias can't re-open to add properties**
 
 ## function
 
-[function](typescript-function.md)
+[function](TypeScript_Function.md)
 
 ## class
 
-[class](typescript-class.md)
+[class](TypeScript_Class.md)
 
 ## namespace
 
-[namespace](typescript-namespace.md)
+[namespace](TypeScript_Namespace.md)
 
 
 ## module
 
-[Module](typescript-module.md)
+[Module](TypeScript_Module.md)
 
 ## mark variable, parameter, properties
 

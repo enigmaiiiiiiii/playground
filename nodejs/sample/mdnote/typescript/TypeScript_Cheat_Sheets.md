@@ -1,9 +1,9 @@
 # ts cheat sheets
 
-![Classes](/image/typescript-classes.png)
+![Classes](/image/TypeScript-Classes.png)
 
-![Control Flow](/image/typescript-control-flow-analysis.png)
+![Control Flow](/image/TypeScript-Control-Flow-Analysis.png)
 
-![Interfaces](/image/typescript-interfaces.png)
+![Interfaces](/image/TypeScript-Interfaces.png)
 
-![Types](/image/typescript-types.png)
+![Types](/image/TypeScript-Types.png)

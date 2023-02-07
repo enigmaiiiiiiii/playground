@@ -1,77 +1,57 @@
-import path from 'path';
-import fs from 'fs';
-import { execSync } from 'child_process';
+import { readdir, stat as _stat, rename, readFile, writeFile } from "fs";
+import { join } from "path";
+import { exec } from "child_process";
 
-const noteDirPath = path.join(path.dirname(process.cwd()), 'mdnote');
+const notePath = 'D:/MyGitHubRepo/playground/nodejs/sample/mdnote';
 
-function renameFilesInDirectory(directoryPath) {
-
-  fs.readdir(directoryPath, (error, files) => {
-    if (error) {
-      console.log(`Error reading directory: ${error}`);
-      return;
+function recursiveRename(dir) {
+  readdir(dir, (err, files) => {
+    if (err) {
+      throw err;
     }
 
-    files.forEach((file) => {
-      const filePath = path.join(directoryPath, file);
-      fs.stat(filePath, (error, stats) => {
+    for (const file of files) {
+      const oldPath = join(dir, file);
+      const newPath = join(dir, file.replace(/_/g, "-").toLowerCase());
 
-        if (error) {
-          console.error(`Error stating file: ${error}`);
+      _stat(oldPath, (err, stat) => {
+        if (err) {
+          throw err;
         }
 
-        if (stats.isDirectory()) {
-          renameFilesInDirectory(filePath);
-        } else if (path.extname(file) === '.md') {
-          modUrlLink(filePath);
-          const newFileName = file.replace(/_/g, '-').toLowerCase();
-          const newFilePath = path.join(directoryPath, newFileName);
-
-          try {
-            execSync(`git mv ${filePath} ${newFilePath}`)
-            console.log(`File renamed from ${file} to ${newFileName}`);
-          } catch (e) {
-            console.error(`Error renaming file: ${file}`);
-          }
+        if (stat.isDirectory()) {
+          recursiveRename(oldPath);
+        } else if (file.endsWith(".md")) {
+          rename(oldPath, newPath, (err) => {
+            if (err) {
+              throw err;
+            }
+            exec(`git mv ${oldPath} ${newPath}`, (err) => {
+              if (err) {
+                throw err;
+              }
+            });
+            readFile(newPath, "utf-8", (err, data) => {
+              if (err) {
+                throw err;
+              }
+              const newData = data.replace(
+                /\[([\w ]+)\]\(([\w_]+\.md)\)/g,
+                (match, p1, p2) => {
+                  return `[${p1}](${p2.replace(/_/g, "-").toLowerCase()})`;
+                }
+              );
+              writeFile(newPath, newData, "utf-8", (err) => {
+                if (err) {
+                  throw err;
+                }
+              });
+            });
+          });
         }
-
       });
-
-    });
-
-  })
-}
-
-function modUrlLink(filePath) {
-  fs.readFile(filePath, 'utf-8', (error, content) => {
-
-    if (error) {
-      console.error(`Error reading file: ${error}`);
-      return;
     }
-
-    const linkRegex = /\[(.*?)\]\((.*?)\)/g;
-    let match;
-
-    while ((match = linkRegex.exec(content))) {
-      console.log(match[0]);
-      let linkUrl = match[2];
-
-      linkUrl = linkUrl.replace(/_/g, '-').toLowerCase();
-
-      content = content.replace(match[2], linkUrl);
-    }
-
-    fs.writeFile(filePath, content, 'utf-8', error => {
-      if (error) {
-        console.error(`Error writing file: ${error}`);
-        return;
-      }
-
-      console.log(`File ${filePath} successfully updated`);
-    });
   });
-
 }
 
-renameFilesInDirectory(noteDirPath);
+recursiveRename(notePath);
