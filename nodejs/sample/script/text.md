@@ -1,19 +1,21 @@
-import { readdir, stat as _stat, readFile, writeFile } from "fs";
+refactor this with use promise
+
+import { readdir, stat as _stat, rename, readFile, writeFile } from "fs";
 import { join } from "path";
-import { execSync } from "child_process";
+import { exec } from "child_process";
 
 const notePath = 'D:/MyGitHubRepo/playground/nodejs/sample/mdnote';
 
 function modifyLinks(dir) {
-  readdir(dir, (err, files) => {
+  fs.readdir(dir, (err, files) => {
     if (err) {
       throw err;
     }
 
     for (const file of files) {
-      const filePath = join(dir, file);
+      const filePath = path.join(dir, file);
 
-      _stat(filePath, (err, stat) => {
+      fs.stat(filePath, (err, stat) => {
         if (err) {
           throw err;
         }
@@ -21,7 +23,7 @@ function modifyLinks(dir) {
         if (stat.isDirectory()) {
           modifyLinks(filePath);
         } else if (file.endsWith(".md")) {
-          readFile(filePath, "utf-8", (err, data) => {
+          fs.readFile(filePath, "utf-8", (err, data) => {
             if (err) {
               throw err;
             }
@@ -31,7 +33,7 @@ function modifyLinks(dir) {
                 return `[${p1}](${p2.replace(/_/g, "-").toLowerCase()})`;
               }
             );
-            writeFile(filePath, newData, "utf-8", (err) => {
+            fs.writeFile(filePath, newData, "utf-8", (err) => {
               if (err) {
                 throw err;
               }
@@ -61,11 +63,16 @@ function recursiveRename(dir) {
         if (stat.isDirectory()) {
           recursiveRename(oldPath);
         } else if (file.endsWith(".md")) {
-          try {
-            execSync(`git mv ${oldPath} ${newPath}`);
-          } catch (error) {
-
-          }
+          rename(oldPath, newPath, (err) => {
+            if (err) {
+              throw err;
+            }
+            exec(`git mv ${oldPath} ${newPath}`, (err) => {
+              if (err) {
+                throw err;
+              }
+            });
+          });
         }
       });
     }
@@ -73,5 +80,8 @@ function recursiveRename(dir) {
 
 }
 
-// recursiveRename(notePath);
-modifyLinks(notePath);
+(function script() {
+  recursiveRename(notePath);
+  modifyLinks(notePath);
+})()
+
