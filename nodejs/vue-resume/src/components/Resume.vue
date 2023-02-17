@@ -1,65 +1,44 @@
 <template>
-  <div class="resume">
-    <Sidebar :name="name" :photoUrl="photoUrl" :email="email" :phone="phone" :location="location" />
-    <Main :chartData="chartData" :skills="skills" />
+  <div class="flex justify-center">
+    <div class="w-4/5">
+      <div>
+        <Header photoUrl="/profile.jpg" />
+      </div>
+      <div class="my-4">
+        <SplitLine />
+      </div>
+      <div class="grid grid-cols-10">
+        <div class="h-full col-start-1 col-span-3">
+          <Sidebar size="4" />
+        </div>
+        <div class="h-full col-span-1">
+          <SplitLine direction="vertical" />
+        </div>
+        <div class="h-full col-span-6">
+          <Main />
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 import Sidebar from './Sidebar.vue';
 import Main from './Main.vue';
+import Header from './Header.vue';
+import SplitLine from './SplitLine.vue';
+import Demo from './Demo.vue';
+import Ray from './Ray.vue';
 
 export default {
   name: 'Resume',
   components: {
     Sidebar,
-    Main
+    Main,
+    Header,
+    SplitLine,
+    Demo,
+    Ray,
   },
-  data() {
-    return {
-      name: 'John Doe',
-      photoUrl: 'https://via.placeholder.com/150',
-      email: 'johndoe@gmail.com',
-      phone: '+1 123-456-7890',
-      location: 'New York, NY',
-      chartData: {
-        labels: ['Java', 'JavaScript', 'HTML', 'CSS', 'SQL'],
-        datasets: [
-          {
-            label: 'Skill level',
-            backgroundColor: '#41b883',
-            data: [4, 3, 4, 3, 4]
-          }
-        ]
-      },
-      skills: [
-        {
-          name: 'Java',
-          level: 'Advanced',
-          description: 'Experience building RESTful APIs with Spring Boot'
-        },
-        {
-          name: 'JavaScript',
-          level: 'Intermediate',
-          description: 'Familiarity with React and Vue.js'
-        },
-        {
-          name: 'HTML',
-          level: 'Advanced',
-          description: 'Experience building responsive websites'
-        },
-        {
-          name: 'CSS',
-          level: 'Intermediate',
-          description: 'Familiarity with Sass and Bootstrap'
-        },
-        {
-          name: 'SQL',
-          level: 'Advanced',
-          description: 'Experience with MySQL and PostgreSQL'
-        }
-      ]
-    }
-  }
 };
 </script>
