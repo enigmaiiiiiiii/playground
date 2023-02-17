@@ -6,8 +6,4 @@ import Ray from './components/Ray.vue';
 
 <template>
   <Resume />
-  <Demo/>
-  <div class="w-1/2">
-    <Ray />
-  </div>
 </template>
