@@ -1,2 +1,3 @@
-what's this mean in svg tag?
-xmlns="http://www.w3.org/2000/svg"
+how to create a split line with dot arrange
+1. use vue component and tailwindcss
+2. the component have a props dot which represent the number of dot

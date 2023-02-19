@@ -1,18 +1,21 @@
 <template>
   <div class="flex justify-center">
-    <div class="w-4/5">
+    <div class="w-5/6">
       <div>
         <Header photoUrl="/profile.jpg" />
       </div>
       <div class="my-4">
-        <SplitLine />
+        <HLine />
       </div>
       <div class="grid grid-cols-10">
         <div class="h-full col-start-1 col-span-3">
-          <Sidebar size="4" />
+          <Sidebar
+            phone="+1 (123) 456-7890"
+            email="example@example.com"
+          />
         </div>
         <div class="h-full col-span-1">
-          <SplitLine direction="vertical" />
+          <VLine />
         </div>
         <div class="h-full col-span-6">
           <Main />
@@ -29,6 +32,8 @@ import Header from './Header.vue';
 import SplitLine from './SplitLine.vue';
 import Demo from './Demo.vue';
 import Ray from './Ray.vue';
+import VLine from './VLine.vue';
+import HLine from './HLine.vue';
 
 export default {
   name: 'Resume',
@@ -39,6 +44,8 @@ export default {
     SplitLine,
     Demo,
     Ray,
+    VLine,
+    HLine,
   },
 };
 </script>

@@ -8,18 +8,6 @@
 export default {
   name: 'SplitLine',
   props: {
-    // size: {
-    //   type: Number,
-    //   required: true
-    // },
-    // dotSize: {
-    //   type: Number,
-    //   default: 1
-    // },
-    // dotSpacing: {
-    //   type: Number,
-    //   default: 4
-    // },
     direction: {
       type: String,
     }

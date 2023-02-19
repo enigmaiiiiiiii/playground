@@ -1,25 +1,23 @@
 <template>
-  <div class="flex flex-col gap-1 mt-7">
+  <div class="flex flex-col gap-1 mt-7 border-b-2 border-gray-400">
     <div class="flex">
       <div class="flex w-full justify-center">
         <div class="flex flex-col h-full flex-auto mt-6">
-          <Ray/>
+          <Ray />
         </div>
         <div class="flex flex-col text-5xl justify-center mx-6 gap-1">
-          <p>hello world</p>
+          <p>
+            <slot></slot>
+          </p>
           <div class="h-0.5 w-full bg-gray-500"></div>
           <div class="flex justify-center">
             <p class="text-xl">full stack developer</p>
           </div>
         </div>
         <div class="flex flex-col h-full flex-auto mt-6">
-          <Ray reverse/>
+          <Ray reverse />
         </div>
       </div>
-    </div>
-    <div>
-      <div class="h-7 w-0.5 absolute bg-black"></div>
-      <div class="h-0.5 w-full bg-gray-500"></div>
     </div>
   </div>
 </template>

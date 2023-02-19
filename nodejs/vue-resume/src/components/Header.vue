@@ -1,6 +1,8 @@
 <template>
   <div>
-    <Title />
+    <TitleFrame>
+      hello world
+    </TitleFrame>
     <div class="flex gap-4 my-4">
       <img class="w-28 rounded-full" :src="photoUrl" alt="Profile photo">
       <div>
@@ -14,13 +16,13 @@
 </template>
 
 <script>
-import Ray from './Ray.vue';
 import Title from './Title.vue';
+import TitleFrame from './TitleFrame.vue';
 
 export default {
   components: {
     Title,
-    Ray,
+    TitleFrame,
   },
   props: {
     photoUrl: {
