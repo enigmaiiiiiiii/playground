@@ -1,9 +1,10 @@
 <template>
-  <div class="percent-bar-label">
-    <p>{{ name }}</p>
+  <div class="flex items-center gap-2">
+    <p class="w-1 h-1 rounded-full bg-black"></p>
+    <p class="text-base">{{ name }}</p>
   </div>
-  <div class="percent-bar">
-    <div class="percent-bar-fill" :style="{width: percent}"></div>
+  <div class="relative w-full h-2 bg-gray-300 rounded-full">
+    <div class="absolute top-0 left-0 h-full bg-blue-500 rounded-full" :style="{width: percent}"></div>
   </div>
 </template>
 
@@ -37,6 +38,7 @@ export default {
   border-radius: 10px;
   transition: width 0.5s ease-in-out;
 }
+
 .percent-bar-label {
   font-size: 12px;
 }

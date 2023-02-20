@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col gap-1 mt-7 border-b-2 border-gray-400">
+  <div class="flex flex-col gap-1 mt-2 border-gray-400">
     <div class="flex">
       <div class="flex w-full justify-center">
         <div class="flex flex-col h-full flex-auto mt-6">
@@ -19,6 +19,7 @@
         </div>
       </div>
     </div>
+    <div class="w-full h-0.5 bg-gray-400"></div>
   </div>
 </template>
 

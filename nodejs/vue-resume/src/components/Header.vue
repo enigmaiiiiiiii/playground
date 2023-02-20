@@ -4,7 +4,7 @@
       hello world
     </TitleFrame>
     <div class="flex gap-4 my-4">
-      <img class="w-28 rounded-full" :src="photoUrl" alt="Profile photo">
+      <img class="w-24 h-24 rounded-full" :src="photoUrl" alt="Profile photo">
       <div>
         <p>about me i am a profession</p>
         <p>about me i am a profession</p>

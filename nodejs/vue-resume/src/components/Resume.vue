@@ -1,6 +1,6 @@
 <template>
   <div class="flex justify-center">
-    <div class="w-5/6">
+    <div>
       <div>
         <Header photoUrl="/profile.jpg" />
       </div>

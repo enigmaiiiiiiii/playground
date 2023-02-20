@@ -39,9 +39,10 @@
       <div class="h-1 w-12 bg-gray-500 my-5"></div>
     </div>
     <h2>SKILLS</h2>
-    <div>
+    <div class="flex flex-col gap-1">
       <SkillBar name="Java" percent="80%" />
       <SkillBar name="Spring" percent="80%" />
+      <SkillBar name="MySQL" percent="70%" />
       <SkillBar name="MySQL" percent="70%" />
       <SkillBar name="vue" percent="60%" />
     </div>
