@@ -1,63 +1,40 @@
+let state = null;
 
-const showBookmark = (() => {
+function useState(initialValue) {
 
-  let _useHash;
-  let _scrollX;
-  let _scrollY;
-  let _nodeX;
-  let _nodeY;
-  let _itFrame;
-  let _scrollId = -1;
-  let _bookMark;
-  let _isBot;
+  // Initialize state with initial value
+  state = state || initialValue;
 
-  // duration: the duration in milliseconds of each frame
-  // frames: number of frames for each scroll
-  let duration = 200;
-  let frames = 10;
-
-  function _next() {
-    if (_itFrame > frames) {
-      clearInterval(_scrollId);
-      _scrollId = -1;
-      return;
-    }
-
-    _isBot = true;
-
-    document.documentElement.scrollTop = Math.round(_scrollY + (_nodeY - _scrollY) * _itFrame / frames);
-    document.documentElement.scrollLeft = Math.round(_scrollX + (_nodeX - _scrollX) * _itFrame / frames);
-    if (_useHash && _itFrame === frames) {
-      console.log(location.hash);
-      location.hash = _bookMark;
-    }
-    _itFrame++;
+  // Define setState function to update state
+  function setState(newValue) {
+    console.log(`state: ${state}, newValue: ${newValue}`);
+    state = newValue;
+    console.log('state updated');
+    render();
   }
 
-  function _chkOwner() {
-    if (_isBot) {
-      _isBot = false;
-      return;
-    }
-    if (_scrollId > -1) {
-      clearInterval(_scrollId);
-      _scrollId = -1;
-    }
+  // Return current state and setState function
+  return [state, setState];
+}
+
+function render() {
+
+  // Example usage: increment count on button click
+  const [count, setCount] = useState(0);
+
+  const handleClick = () => {
+    setCount(count + 1);
   }
 
-  window.addEventListener("scroll", _chkOwner, false);
+  // Render button to the page with handleClick function
+  const buttonElement = document.getElementById('button');
+  buttonElement.addEventListener('click', handleClick);
 
-  return (bookmark, useHash) => {
-    const node = document.querySelector(bookmark);
-    _scrollY = document.documentElement.scrollTop;
-    _scrollX = document.documentElement.scrollLeft;
-    _bookMark = bookmark;
-    _useHash = useHash === true;
-    _nodeX = node.offsetLeft;
-    _nodeY = node.offsetTop;
-    _itFrame = 1;
-    if (_scrollId === -1) {
-      _scrollId = setInterval(_next, Math.round(duration / frames));
-    }
-  };
-})();
+  // Render current count to the page
+  const counterElement = document.getElementById('counter');
+  counterElement.innerText = `You clicked the button ${count} times.`;
+
+}
+
+render();
+
