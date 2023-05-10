@@ -1,8 +1,9 @@
 
-export function isUndifined(value: any): boolean {
-  return typeof value === 'undefined';
+const httpRequest = new XMLHttpRequest();
+
+httpRequest.onreadystatechange = () => {
+  console.log(httpRequest.responseText);
 }
 
-export function add(a: number, b: number): number {
-  return a + b;
-}
+httpRequest.open('GET', 'http://localhost:3000/hello', true);
+httpRequest.send();

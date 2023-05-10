@@ -1,28 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
-import './card.css'
-import showdown from 'showdown';
-import MarkdownView from 'react-showdown';
-
-const converter = new showdown.Converter();
+import React, { useState } from 'react'
+import ChatRoom from './ChatRoom';
 
 function App() {
 
-  const markdown = `
-    # Welcome to React Showdown :+1:
-
-    ## This is a sub-heading...
-  `
+  const [roomId, setroomId] = useState('general');
 
   return (
     <div className="App">
-      <div>
-        <h1>Markdown Previewer</h1>
-        <MarkdownView
-          markdown={markdown}
-          options={{tables: true, emoji: true}}
-        />
-      </div>
+      <label>
+        Choose the chat room: {' '}
+        <select
+          value={roomId}
+          onChange={e => setroomId(e.target.value)}
+        >
+          <option value="general">general</option>
+          <option value="travel">travel</option>
+          <option value="music">music</option>
+        </select>
+      </label>
+      <hr />
+      <ChatRoom roomId={roomId} />
     </div>
   );
 }
