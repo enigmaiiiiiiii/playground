@@ -1,17 +1,30 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="en">
+	<head>
+		<title>three.js webgl - cameras</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<script type="x-shader/x-vertex" id="vertexshader">
 
-<head>
-  <meta charset="UTF-8" />
-  <title>MDN Example</title>
-</head>
+			attribute float size;
+			attribute vec3 color;
+			varying vec3 vColor;
 
-<body>
-  <button id="button">Add One</button>
-  <p>
-    <span id="counter">context</span>
-  </p>
-</body>
+			void main() {
+				vColor = color;
+				vec4 mvPosition = modelViewMatrix * vec4( position, 1.0 );
+				gl_PointSize = size * ( 300.0 / -mvPosition.z );
+				gl_Position = projectionMatrix * mvPosition;
+			}
+		</script>
+		<script>
+			console.log(document.getElementById("vertexshader").textContent);
+		</script>
 
-  <script src="script.js"></script>
+	</head>
+	<body>
+		<div>
+
+		</div>
+	</body>
 </html>
