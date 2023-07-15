@@ -2,6 +2,5 @@ import os
 import fileinput
 from translate import Translator
 
-print("')
-
+print("hello world")
 
