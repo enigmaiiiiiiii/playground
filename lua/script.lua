@@ -1,3 +1,4 @@
-local t = require "add"
+local str = "hello world"
 
-t.foo()
+print(#str)
+
