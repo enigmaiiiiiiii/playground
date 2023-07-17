@@ -31,3 +31,10 @@ def heap_sort(arr):
         heapify(arr, i, 0)
     return arr
 
+def merge_sort(arr):
+    if len(arr) <= 1:
+        return arr
+    mid = len(arr) // 2
+    left, right = merge_sort(arr[:mid]), merge_sort(arr[mid:])
+    return merge(left, right, arr.copy())
+
