@@ -1,24 +1,59 @@
-import os
-import fileinput
-from translate import Translator
+from datetime import datetime
 
-def translate_markdown_files(directory):
-    translator = Translator(from_lang='chinese', to_lang='english')
-    for root, dirs, files in os.walk(directory):
-        for file in files:
-            if file.endswith('.md'):
-                file_path = os.path.join(root, file)
-                translate_file(file_path, translator)
+class Note:
+    """
+    This class represents a note.
 
-def translate_file(file_path, translator):
-    translated_lines = []
-    with fileinput.FileInput(file_path, inplace=True, backup='.bak') as file:
-        for line in file:
-            translated_line = translator.translate(line)
-            translated_lines.append(translated_line)
+    Attributes:
+    - title (str): The title of the note.
+    - content (str): The content of the note.
+    - created_at (datetime): The date and time when the note was created.
+    - updated_at (datetime): The date and time when the note was last updated.
 
-    with open(file_path, 'w') as file:
-        file.writelines(translated_lines)
+    Methods:
+    - update_content(new_content): Updates the content of the note and updates the 'updated_at' timestamp.
+    """
 
-# Usage example
-translate_markdown_files('D:\\experimental-target\\NoteLab')
+    __title: str
+    __content: str
+    __created_at: datetime
+    __updated_at: datetime
+
+    def __init__(self, title, content):
+        """
+        Initializes a new Note object.
+
+        Args:
+        - title (str): The title of the note.
+        - content (str): The content of the note.
+        """
+
+        self.title = title
+        self.content = content
+
+    @property
+
+    @property
+    def created_at(self):
+        """
+        Returns the date and time when the note was created.
+        """
+
+        return self.__created_at
+
+    @property
+    def update_at(self):
+        """
+        Updates the content of the note and updates the 'updated_at' timestamp.
+
+        Args:
+        - new_content (str): The new content of the note.
+        """
+        return self.__updated_at
+
+    @update_at.setter
+    def update_at(self):
+        self.__updated_at = datetime.now()
+
+
+note  = Note("")
