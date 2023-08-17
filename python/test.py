@@ -25,13 +25,6 @@ class Note:
         created_at=datetime.fromtimestamp(0),
         updated_at=datetime.fromtimestamp(0)
     ):
-        """
-        Initializes a new Note object.
-
-        Args:
-        - title (str): The title of the note.
-        - content (str): The content of the note.
-        """
 
         self.title = title
         self.content = content
