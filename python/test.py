@@ -1,34 +1,24 @@
-from dotenv import load_dotenv
-import os
-import openai
+from collections.abc import Iterable
+from typing import Protocol
 
-load_dotenv()
 
-openai.api_key = os.environ.get("OPENAI_API_KEY")
+class Combiner(Protocol):
+    def __call__(self, *vals: bytes, maxlen: int | None = None) -> list[bytes]:
+        ...
 
-prompt_base = """
-translate this text to english.
-if it is already english, just copy it
-here is the text:\n
-"""
 
-def translate_line(text):
+def batch_proc(data: Iterable[bytes], cb_results: Combiner) -> bytes:
+    for item in data:
+        ...
 
-    response = openai.Completion.create(
-        model="text-davinci-003",
-        prompt=prompt_base + text,
-        temperature=0.3,
-        max_tokens=300,
-        top_p=1.0,
-        frequency_penalty=0.0,
-        presence_penalty=0.0,
-    )
-    return response.choices[0].text.strip()
 
-file_path = "D:/experimental-target/NoteLab/sorted/Linux/linux-network-command.md"
+def good_cb(*vals: bytes, maxlen: int | None = None) -> list[bytes]:
+   ... 
 
-with open(file_path, 'r', encoding='utf-8') as file:
-    for line in file:
-        translated_line = translate_line(line)
-        print(translated_line)
 
+def bad_cb(*vals: bytes, maxitems: int | None) -> list[bytes]:
+    ...
+
+
+batch_proc([], good_cb)
+batch_proc([], bad_cb)

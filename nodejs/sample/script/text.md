@@ -1,3 +1,4 @@
+<<<<<<<< HEAD:nodejs/sample/script/text.md
 refactor this with use promise
 
 import { readdir, stat as _stat, rename, readFile, writeFile } from "fs";
@@ -85,3 +86,15 @@ function recursiveRename(dir) {
   modifyLinks(notePath);
 })()
 
+========
+var EmailService = /** @class */ (function () {
+    function EmailService() {
+    }
+    EmailService.prototype.sendEmail = function (message, receiver) {
+        console.log('Email sent to ' + receiver + ' with message: ' + message);
+    };
+    return EmailService;
+}());
+var emailService = new EmailService();
+emailService.sendEmail('Hello World', 'receiver@example.com');
+>>>>>>>> ls:nodejs/sample/script/main.js

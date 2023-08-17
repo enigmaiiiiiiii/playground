@@ -1,0 +1,13 @@
+.rw-r--r--  31 dopamine staff 17 Jul 17:32  c.js
+drwxr-xr-x   - dopamine staff 17 Jul 17:32  Cpp
+drwxr-xr-x   - dopamine staff  6 Aug 21:32  dotnet
+drwxr-xr-x   - dopamine staff 15 Jul 14:49  hello-everything
+.rw-r--r-- 121 dopamine staff 28 Jun 15:14  index.html
+drwxr-xr-x   - dopamine staff 28 Jun 15:14  java
+drwxr-xr-x   - dopamine staff 30 Jun 10:55  JavaCode
+.rw-r--r--   0 dopamine staff 11 Aug 16:17  ls.txt
+.rw-r--r-- 224 dopamine staff 17 Jul 17:32  newdemo.js
+drwxr-xr-x   - dopamine staff 15 Jul 14:49  nodejs
+drwxr-xr-x   - dopamine staff 17 Jul 17:32  python
+.rw-r--r--  34 dopamine staff 17 Jul 17:32  README.md
+drwxr-xr-x   - dopamine staff 10 Aug 17:31  Shell-Script
