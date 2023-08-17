@@ -1,4 +1,3 @@
-<<<<<<<< HEAD:nodejs/sample/script/text.md
 refactor this with use promise
 
 import { readdir, stat as _stat, rename, readFile, writeFile } from "fs";
