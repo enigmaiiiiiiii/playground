@@ -47,9 +47,6 @@ function modifyLinks(dir) {
 
 function recursiveRename(dir) {
   readdir(dir, (err, files) => {
-    if (err) {
-      throw err;
-    }
 
     for (const file of files) {
       const oldPath = join(dir, file);
@@ -84,16 +81,3 @@ function recursiveRename(dir) {
   recursiveRename(notePath);
   modifyLinks(notePath);
 })()
-
-========
-var EmailService = /** @class */ (function () {
-    function EmailService() {
-    }
-    EmailService.prototype.sendEmail = function (message, receiver) {
-        console.log('Email sent to ' + receiver + ' with message: ' + message);
-    };
-    return EmailService;
-}());
-var emailService = new EmailService();
-emailService.sendEmail('Hello World', 'receiver@example.com');
->>>>>>>> ls:nodejs/sample/script/main.js
