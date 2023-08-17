@@ -1,15 +1,10 @@
 from translate import Translator
 import fileinput
 
-def translate_file_content(file_path):
-    translator = Translator(from_lang="chinese", to_lang="english")
+# quick sort
+def quick_sort(l):
+    if len(l) <= 1:
+        return l
+    else:
+        return quick_sort([e for e in l[1:] if e <= l[0]]) + [l[0]] + quick_sort([e for e in l[1:] if e > l[0]])
 
-    with fileinput.FileInput(file_path, inplace=True, backup=".bak", encoding="utf-8") as file:
-        for line in file:
-            translated_text = translator.translate(line)
-            print(translated_text)
-
-
-# Example usage
-file_path = "D:\\experimental-target\\NoteLab\\sorted\\Linux\\linux-file-descriptor.md"
-translate_file_content(file_path)
