@@ -1,59 +1,26 @@
-from datetime import datetime
+from Collection import List 
+print("hello world")
 
-class Note:
-    """
-    This class represents a note.
+# heap sort
+def heap_sort(l: List[int]):
+    
+    def heapify(l: List, n: int, i: int):
+        largest = i
+        left = 2 * i + 1
+        right = 2 * i + 2
 
-    Attributes:
-    - title (str): The title of the note.
-    - content (str): The content of the note.
-    - created_at (datetime): The date and time when the note was created.
-    - updated_at (datetime): The date and time when the note was last updated.
+        if left < n and l[i] < l[left]:
+            largest = left
+        if right < n and l[largest] < l[right]:
+            largest = right
+        if largest != i:
+            l[i], l[largest] = l[largest], l[i]
+            heapify(l, n, largest)
 
-    Methods:
-    - update_content(new_content): Updates the content of the note and updates the 'updated_at' timestamp.
-    """
+    n = len(l)
+    for i in range(n // 2 - 1, -1, -1):
+        heapify(l, n, i)
+    for i in range(n - 1, 0, -1):
+        l[i], l[0] = l[0], l[i]
+        heapify(l, i, 0)
 
-    __title: str
-    __content: str
-    __created_at: datetime
-    __updated_at: datetime
-
-    def __init__(self, title, content):
-        """
-        Initializes a new Note object.
-
-        Args:
-        - title (str): The title of the note.
-        - content (str): The content of the note.
-        """
-
-        self.title = title
-        self.content = content
-
-    @property
-
-    @property
-    def created_at(self):
-        """
-        Returns the date and time when the note was created.
-        """
-
-        return self.__created_at
-
-    @property
-    def update_at(self):
-        """
-        Updates the content of the note and updates the 'updated_at' timestamp.
-
-        Args:
-        - new_content (str): The new content of the note.
-        """
-        return self.__updated_at
-
-    @update_at.setter
-    def update_at(self):
-        self.__updated_at = datetime.now()
-
-
-note  = Note("")
