@@ -1,7 +1,7 @@
 from datetime import datetime
+from pydantic import BaseModel
 
-
-class Note:
+class Note(BaseModel):
     """
     This class represents a note.
 
@@ -10,4 +10,11 @@ class Note:
     - content (str): The content of the note.
     - created_at (datetime): The date and time when the note was created.
     - updated_at (datetime): The date and time when the note was last updated.
+    """
+
+    title: str
+    content: str
+    created_at: datetime
+    updated_at: datetime
+
 
