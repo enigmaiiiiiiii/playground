@@ -11,8 +11,6 @@ class Note:
     - created_at (datetime): The date and time when the note was created.
     - updated_at (datetime): The date and time when the note was last updated.
 
-    Methods:
-    - update_content(new_content): Updates the content of the note and updates the 'updated_at' timestamp.
     """
 
     __title: str
