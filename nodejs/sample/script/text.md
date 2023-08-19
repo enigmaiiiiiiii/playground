@@ -47,9 +47,6 @@ function modifyLinks(dir) {
 
 function recursiveRename(dir) {
   readdir(dir, (err, files) => {
-    if (err) {
-      throw err;
-    }
 
     for (const file of files) {
       const oldPath = join(dir, file);
@@ -84,4 +81,3 @@ function recursiveRename(dir) {
   recursiveRename(notePath);
   modifyLinks(notePath);
 })()
-
