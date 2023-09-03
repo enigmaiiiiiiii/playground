@@ -1,3 +1,3 @@
 
-console.log("hello a.js");
-cons
+b = 4
+a = b < 5 ? 1 : 2
