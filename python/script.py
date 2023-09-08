@@ -1,4 +1,3 @@
-
 def foo(**kwargs):
     print(kwargs)
 
@@ -8,4 +7,3 @@ b = [4, 5]
 c = 5 if len(b) > len(a) else 0
 
 print(c)
-
