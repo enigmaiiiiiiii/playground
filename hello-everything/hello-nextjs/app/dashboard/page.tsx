@@ -1,9 +1,7 @@
 import React from 'react'
+import Sample from 'src/components/Sample'
 
-const tt = new Date().toISOString() 
-const tv = process.env.TEST_ENV
-console.log(`[${tt}] TEST_ENV: ${tv}`)
-
-export default function DashBoard() {
-  return <>app dashboard</> 
+export default function Page() {
+  return <Sample />
 }
+
