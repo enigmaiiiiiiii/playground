@@ -1,12 +1,13 @@
 -- functionality: adds two numbers
 
-t = {}
-function t.add(a, b)
+local M = {}
+
+M.add = function(a, b)
     return a + b
 end
 
-function t.foo()
+function M.foo()
     print("hello")
 end
 
-return t
+return M
