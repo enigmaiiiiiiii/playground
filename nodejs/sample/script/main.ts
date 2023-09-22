@@ -1,19 +1,10 @@
-class EmailService {
-  sendEmail(message: string, receiver: string): void {
-    console.log('Email sent to ' + receiver + ' with message: ' + message)
-  }
+type Point = {
+  x: number;
+  y: number;
 }
 
-class MyApplication {
-  private email: EmailService = new EmailService()
+type P = keyof Point;
 
-  processMessage(msg: string, receiver: string): void {
-    this.email.sendEmail(msg, receiver)
-  }
-}
+let foo: P = 'x';
 
-let emailService = new EmailService()
-emailService.sendEmail('Hello World', 'receiver@example.com')
-
-const app = new MyApplication()
-app.processMessage('Hello World', 'world@example.com')
+console.log(foo);
