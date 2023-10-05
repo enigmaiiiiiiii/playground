@@ -10,10 +10,7 @@ int main() {
   int c = add(a, b);
   cout << "a + b = " << c << endl;
 
-  /* char name[100]; */
-  /* printf("please input your name: "); */
-  /* scanf("%s", name); */
-  /* cout << "hello " << name << endl; */
+  cout << "hello world" << endl;
 
   return 0;
 }
