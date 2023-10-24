@@ -1,7 +1,8 @@
-local M = {}
 
-function M.sub(a, b)
-    return a - b
-end
+local path = '/Users/dopamine/Code/MyRepository/playground/lua/mod'
 
-return M
+local pattern = '^.*(%w+/%w+$)'
+
+local pack = string.match(path, pattern)
+
+print(pack)

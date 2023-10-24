@@ -1,2 +1,0 @@
-ADD_SUBDIRECTORY(./foo ./foo/bin)
-MESSAGE(STATUS "HOME: $ENV{HOME}")

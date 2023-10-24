@@ -1,1 +1,4 @@
-$USER lives in $city, $COUNTRY
+input.txt
+
+output.txt
+script.sh

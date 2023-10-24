@@ -1,10 +1,7 @@
-type Point = {
-  x: number;
-  y: number;
+
+const _window = typeof window !== 'undefined' ? window : undefined;
+
+function foo(args: any) {
+  let target: HTMLElement = window
+  target = args
 }
-
-type P = keyof Point;
-
-let foo: P = 'x';
-
-console.log(foo);

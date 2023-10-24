@@ -1,17 +1,10 @@
 
-function fooA({ x = 2, y = 4}) {
-  return x + y
+function fx(x, y, z) {
+    console.log(x, y, z)
 }
+const numbers = [1, 2, 3];
+const str = "hello";
 
-function fooB({ x = 2, y = 4} = {}) {
-  return x + y
-}
+fx(...numbers);  // 1, 2, 3
+fx(...str);      // h, e, l
 
-function fooC(obj = {x: 1, y: 2}) {
-  return obj.x + obj.y
-}
-
-console.log(fooA({}))
-// console.log(fooA()) // error
-console.log(fooB())
-console.log('fooC', fooC())
