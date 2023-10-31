@@ -1,8 +1,8 @@
 
-local path = '/Users/dopamine/Code/MyRepository/playground/lua/mod'
+local path = '/Users/dopamine/Code/MyRepository/playground/lua.pack/mod'
 
-local pattern = '^.*(%w+/%w+$)'
+local pattern = '([^/]+/[^/]+)$'
 
-local pack = string.match(path, pattern)
+local first, second, res = string.find(path, pattern)
 
-print(pack)
+print(first, second, res)

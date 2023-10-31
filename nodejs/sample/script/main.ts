@@ -1,7 +1,15 @@
-
-const _window = typeof window !== 'undefined' ? window : undefined;
-
-function foo(args: any) {
-  let target: HTMLElement = window
-  target = args
+const rec: Record<string, number> = {
+  a: 1,
+  b: 2,
+  c: 3,
 }
+
+const res = Object.keys(rec).filter((key) => {
+  console.log(rec[key])
+  return rec[key] >= 2
+})
+
+console.log(res)
+
+
+
