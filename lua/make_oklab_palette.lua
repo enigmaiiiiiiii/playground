@@ -445,7 +445,6 @@ H.make_hues = function(bg_h, fg_h, n_hues)
   local period = 360 / n_hues
   local half_period = 0.5 * period
 
-  print(bg_h, fg_h)
   -- - Compute delta which determines the furtherst grid
   local d
   if bg_h == nil and fg_h == nil then d = 0 end
@@ -456,7 +455,6 @@ H.make_hues = function(bg_h, fg_h, n_hues)
     local mid = 0.5 * (ref_bg + ref_fg)
     local mid_alt = (mid + half_period) % period
 
-    print(mid, mid_alt)
     d = H.dist_period(mid, ref_bg, period) < H.dist_period(mid_alt, ref_bg, period) and mid_alt or mid
   end
 

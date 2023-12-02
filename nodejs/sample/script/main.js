@@ -1,10 +1,9 @@
-var rec = {
-    a: 1,
-    b: 2,
-    c: 3
-};
-var res = Object.keys(rec).filter(function (key) {
-    console.log(rec[key]);
-    return rec[key] >= 2;
-});
-console.log(res);
+var Point = /** @class */ (function () {
+    function Point(x, y) {
+        this.x = 3;
+        this.y = 4;
+    }
+    return Point;
+}());
+var p = new Point(1, 2);
+console.log(p.x);

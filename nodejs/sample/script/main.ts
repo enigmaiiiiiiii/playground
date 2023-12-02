@@ -1,15 +1,16 @@
-const rec: Record<string, number> = {
-  a: 1,
-  b: 2,
-  c: 3,
+
+class Point {
+  x: number = 3
+  y: number = 4
+
+  constructor(x: number, y: number) {
+  }
+
 }
 
-const res = Object.keys(rec).filter((key) => {
-  console.log(rec[key])
-  return rec[key] >= 2
-})
 
-console.log(res)
+  
 
+const p = new Point(1, 2)
 
-
+console.log(p.x)
