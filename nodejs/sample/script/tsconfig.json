@@ -1,11 +1,15 @@
 {
   "include": ["main.ts"],
   "compilerOptions": {
-    "target": "ES5",
+    "target": "es5",
+    "esModuleInterop": true,
+    "module": "commonjs",
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "downlevelIteration": true,
     "strictNullChecks": true,
-    "strictPropertyInitialization": true
+    "strictPropertyInitialization": true,
+    "sourceMap": true,
+    "outDir": "out"
   }
 }

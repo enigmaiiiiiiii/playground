@@ -1,5 +1,7 @@
 #!/bin/bash
 
-ls -l | read foo
+real() { echo "${1#./}"; }
+real2() { echo "${1}"; }
 
-echo $foo
+real2 "./path/to/script.txt"
+

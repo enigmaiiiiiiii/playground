@@ -1,36 +1,22 @@
-import json
-from typing import List
-from pydantic import BaseModel, ConfigDict, constr
-from sqlalchemy import Column, Integer, String
-from sqlalchemy.dialects.postgresql import ARRAY
-from sqlalchemy.orm import declarative_base
+class MyIterable:
+    def __init__(self, data):
+        self.data = data
 
-Base = declarative_base()
+    def __iter__(self):
+        # Return an iterator object (in this case, 'self' is used as the iterator)
+        yield 1
+        yield 2
+        yield 3
 
-class CompanyOrm(Base):
-    __tablename__ = 'companies'
+    def __next__(self): 
+        if not self.data:
+            raise StopIteration
+        return self.data.pop(0)
 
-    id = Column(Integer, primary_key=True, nullable=False)
-    public_key = Column(String(20), index=True, nullable=False, unique=True)
-    name = Column(String(63), unique=True)
-    domains = Column(ARRAY(String(255)))
+# Create an instance of MyIterable
+my_iterable = MyIterable([3, 4, 5, 6,7])
 
-class CompanyModel(BaseModel):
-    model_config = ConfigDict(from_attributes=True)
-
-    id: int
-    public_key: constr(max_length=20)
-    name: constr(max_length=63)
-    domains: List[constr(max_length=255)]
-
-co_orm = CompanyOrm(
-    id=123,
-    public_key='foobar',
-    name='Testing',
-    domains=['example.com', 'foobar.com']
-)
-
-print(co_orm)
-co_model = CompanyModel.model_validate(co_orm)
-print(co_model)
+# Use it in a for loop
+for item in my_iterable:
+    print(item)
 
