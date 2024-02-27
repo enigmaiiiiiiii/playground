@@ -1,14 +1,17 @@
-local function escape_pattern(pattern)
-    return pattern:gsub('[%-%.%+%[%]%(%)%$%^%%%?%*]','%%%1')
+local flag = 0
+
+local function foo()
+  local count = 0
+  while true do
+    count = count + 1
+    flag = flag + 1
+    if flag == 3 then
+      print("foo")
+    else
+      print("time to return")
+      return count
+    end
+  end
 end
 
-local a = "hello-\nfoo\t-bar"
-local b = [[hello-foo]]
-local esa = [["]] .. a .. [["]]
-
--- Escape all characters in b
-local escaped_b = escape_pattern(b)
-
-local c = string.gsub(a, escaped_b, '')
-print(esa)  -- -bar
-
+print("Count:", foo())

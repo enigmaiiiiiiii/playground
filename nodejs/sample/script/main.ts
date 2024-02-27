@@ -1,32 +1,26 @@
-function foo(key: string): any {
-  console.log("evaluate:", key);
-  return function(target: any, propertyKey: string) {
-    console.log("call:", key);
-    console.log("-----------------")
+class Point {
+  x: number
+  y: number
+
+  constructor(x: number, y: number) {
+    this.x = x
+    this.y = y
+  }
+
+  draw() {
+    console.log('X: ' + this.x + ', Y: ' + this.y)
   }
 }
 
-@foo("Class Decorator")
-class C {
-  @foo("Static Method")
-  static method(@foo("Static Method Parameter") x) {}
+const p = <Point>new Proxy(Object.create(null), {
+  get: (target: any, key: PropertyKey) => {
+    if (key in target) {
+      return target[key]
+    }
+    if (key == "x") {
+      return 5
+    }
+  },
+})
 
-  @foo("Static Property")
-  static prop?: number = 42;
-
-  // @foo("Instance Property")
-  // prop?: number;
-
-  constructor(@foo("Constructor Parameter") x) {}
-
-  // @foo("Instance Method")
-  // method(@foo("instance mehtod Parameter") x) {}
-
-
-}
-
-function abc() {
-  for (let i = 0; i < 10; i++) {
-    console.log(i);
-  }
-}
+console.log(p.x) // 8
